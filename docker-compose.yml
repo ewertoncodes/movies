@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017/favorite_movies_development
+    depends_on:
+      - mongodb
+    volumes:
+      - ".:/app"
+    command: >
+      bash -c "bundle exec rails db:create db:migrate && bin/rails css:build && rails server -b '0.0.0.0'"
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:

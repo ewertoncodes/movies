@@ -1,0 +1,20 @@
+development:
+  clients:
+    default:
+      database: favorite_movies_development
+      hosts:
+        - mongodb:27017
+
+production:
+  clients:
+    default:
+      database: favorite_movies_production
+      hosts:
+        - mongodb:27017
+
+test:
+  clients:
+    default:
+      database: favorite_movies_test
+      hosts:
+        - mongodb:27017

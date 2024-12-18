@@ -1,0 +1,41 @@
+<%= form_with(model: @movie, local: true) do |form| %>
+  <% if @movie.errors.any? %>
+    <div class="alert alert-danger">
+      <ul>
+        <% @movie.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title, 'Título' %>
+    <%= form.text_field :title, class: 'form-control', placeholder: 'Digite o título do filme' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :genre, 'Gênero' %>
+    <%= form.text_field :genre, class: 'form-control', placeholder: 'Digite o gênero do filme' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :plot, 'Sinopse' %>
+    <%= form.text_area :plot, class: 'form-control', placeholder: 'Digite a sinopse do filme', rows: 5 %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :director, 'Diretor' %>
+    <%= form.text_field :director, class: 'form-control', placeholder: 'Digite o nome do diretor' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :imdb_id, 'ID do IMDB' %>
+    <%= form.text_field :imdb_id, class: 'form-control', placeholder: 'Digite o ID do IMDB' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit @movie.new_record? ? 'Criar Filme' : 'Salvar Alterações', class: 'btn btn-primary' %>
+    <%= link_to 'Cancelar', movies_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>

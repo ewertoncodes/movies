@@ -1,0 +1,23 @@
+<h1>Lista de Filmes</h1>
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie| %>
+      <tr>
+        <td><%= movie.title %></td>
+        <td>
+          <%= link_to 'Ver', movie_path(movie), class: 'btn btn-primary btn-sm' %>
+          <%= link_to 'Editar', edit_movie_path(movie), class: 'btn btn-warning btn-sm' %>
+          <%= link_to 'Excluir', movie_path(movie), data: { turbo_method: :delete }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

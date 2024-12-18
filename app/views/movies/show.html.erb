@@ -1,0 +1,32 @@
+<!-- app/views/movies/show.html.erb -->
+<div class="container mt-4">
+  <h1 class="display-4"><%= @movie.title %></h1>
+  <p><strong>Ano:</strong> <%= @movie.year %></p>
+  <p><strong>Descrição:</strong> <%= @movie.plot %></p>
+
+  <h3 class="mt-4">Comentários</h3>
+
+  <% if @movie.comments.present? %>
+    <ul class="list-group">
+      <% @movie.comments.each do |comment| %>
+        <li class="list-group-item">
+          <p><%= comment %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>Nenhum comentário ainda.</p>
+  <% end %>
+
+  <h4 class="mt-4">Adicionar Comentário</h4>
+  
+  <%= form_with url: add_comment_movie_path(@movie), method: :post, class: 'mt-3' do |form| %>
+    <div class="form-group">
+      <%= form.label :comment, 'Comentário', class: 'form-label' %>
+      <%= form.text_area :comment, class: 'form-control', rows: 3, placeholder: 'Escreva seu comentário...' %>
+    </div>
+    <%= form.submit 'Adicionar Comentário', class: 'btn btn-primary mt-2' %>
+  <% end %>
+
+  <%= link_to 'Voltar', movies_path, class: 'btn btn-secondary mt-3' %>
+</div>
