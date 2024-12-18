@@ -13,7 +13,6 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
   git \
   curl \
   nodejs \
-  npm \
   && npm install -g yarn
 
 # Definindo o diretório de trabalho
