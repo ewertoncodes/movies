@@ -5,7 +5,7 @@ class OmdbApi
   base_uri "http://www.omdbapi.com/"
 
   def initialize
-    @apikey = ENV['OMDB_API_KEY'] 
+    @apikey = ENV["OMDB_API_KEY"]
   end
 
   def search(query)
