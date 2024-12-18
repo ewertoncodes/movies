@@ -1,6 +1,14 @@
 # Projeto Movies App 🎥
 
+
+
 Um aplicativo Rails para gerenciar filmes e adicionar comentários.
+
+
+
+
+https://github.com/user-attachments/assets/df2ec31f-a425-4b4d-9724-1b76a287a09d
+
 
 ## 🚀 Como executar o projeto com Docker Compose
 
